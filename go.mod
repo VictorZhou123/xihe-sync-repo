@@ -7,9 +7,9 @@ require (
 	github.com/huaweicloud/huaweicloud-sdk-go-obs v3.22.11+incompatible
 	github.com/opensourceways/community-robot-lib v0.0.0-20221016001453-0602b5e39d95
 	github.com/sirupsen/logrus v1.9.3
-	github.com/xanzy/go-gitlab v0.76.0
-	gorm.io/driver/mysql v1.4.4
-	gorm.io/gorm v1.24.2
+	github.com/xanzy/go-gitlab v0.73.1
+	gorm.io/driver/mysql v1.4.3
+	gorm.io/gorm v1.24.0
 )
 
 require (
