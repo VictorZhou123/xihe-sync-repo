@@ -16,6 +16,8 @@ RUN apk update && apk add --no-cache \
         libc6-compat
 COPY --from=BUILDER /go/src/github.com/opensourceways/xihe-sync-repo/xihe-sync-repo /opt/app/xihe-sync-repo
 COPY --from=BUILDER /go/src/github.com/opensourceways/xihe-sync-repo/obsutil /opt/app/obsutil
-COPY --from=BUILDER /go/src/github.com/opensourceways/xihe-sync-repo/app/tools/sync_files.sh /opt/app/sync_file.sh
+COPY --from=BUILDER /go/src/github.com/opensourceways/xihe-sync-repo/app/tools/sync_files.sh /opt/app/sync_files.sh
+
+RUN mkdir /opt/app/workspace
 
 ENTRYPOINT ["/opt/app/xihe-sync-repo"]
