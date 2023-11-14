@@ -84,6 +84,8 @@ func (d *SyncRepo) Run(ctx context.Context, cfg *Config, log *logrus.Entry) erro
 }
 
 func (d *SyncRepo) handle(body []byte, header map[string]string) error {
+	fmt.Printf("do handle...")
+
 	if err := d.validateMessage(body, header); err != nil {
 		// no need retry
 		return nil
@@ -120,6 +122,8 @@ func (d *SyncRepo) validateMessage(body []byte, header map[string]string) error 
 }
 
 func (d *SyncRepo) doTask(log *logrus.Entry) {
+	fmt.Printf("do task...")
+
 	f := func(msg message) {
 		task := &msg.task
 

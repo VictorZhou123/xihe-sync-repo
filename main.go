@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"os"
 	"os/signal"
 	"sync"
@@ -47,6 +48,8 @@ func gatherOptions(fs *flag.FlagSet, args ...string) (options, error) {
 const component = "xihe-sync-repo"
 
 func main() {
+	fmt.Printf("service begin...")
+
 	logrusutil.ComponentInit(component)
 	log := logrus.NewEntry(logrus.StandardLogger())
 
@@ -66,6 +69,8 @@ func main() {
 		logrus.SetLevel(logrus.DebugLevel)
 		logrus.Debug("debug enabled.")
 	}
+
+	fmt.Printf("before loading config...")
 
 	// load config
 	cfg, err := loadConfig(o.service.ConfigFile)
@@ -113,6 +118,8 @@ func main() {
 
 		return
 	}
+
+	fmt.Printf("running begin...")
 
 	// run
 	run(d, &cfg.SyncRepo, log)
